@@ -67,11 +67,11 @@ export function SpreadsheetForm({ onAddSpreadsheet }: SpreadsheetFormProps) {
       onOpenChange={setIsOpen}
       className="border rounded-lg shadow-md bg-white overflow-hidden"
     >
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600">
+      <div className="bg-gradient-to-r from-[#60C082] to-[#4DA36A]">
         <CollapsibleTrigger asChild>
           <Button 
             variant="ghost" 
-            className="w-full p-4 text-white hover:bg-blue-600/20 flex items-center justify-between"
+            className="w-full p-4 text-white hover:bg-[#60C082]/20 flex items-center justify-between"
           >
             <div className="flex items-center gap-2">
               <FilePlus2 className="h-5 w-5" />
@@ -91,7 +91,7 @@ export function SpreadsheetForm({ onAddSpreadsheet }: SpreadsheetFormProps) {
                 placeholder="https://docs.google.com/spreadsheets/d/..."
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-gray-200 focus:border-[#60C082] focus:ring-[#60C082]"
               />
             </div>
             
@@ -102,14 +102,14 @@ export function SpreadsheetForm({ onAddSpreadsheet }: SpreadsheetFormProps) {
                 placeholder="Client Name"
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
-                className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-gray-200 focus:border-[#60C082] focus:ring-[#60C082]"
               />
             </div>
           </div>
           
           <Button 
             type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-[#60C082] hover:bg-[#4DA36A] text-white"
           >
             Add Spreadsheet
           </Button>
