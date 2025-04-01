@@ -6,6 +6,7 @@ import { SpreadsheetForm } from "@/components/SpreadsheetForm";
 import { SpreadsheetTable } from "@/components/SpreadsheetTable";
 import { EmptyState } from "@/components/EmptyState";
 import { Spreadsheet } from "@/types";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Dashboard() {
   const [spreadsheets, setSpreadsheets] = useState<Spreadsheet[]>([
@@ -23,6 +24,8 @@ export default function Dashboard() {
     },
   ]);
 
+  const { toast } = useToast();
+
   const handleAddSpreadsheet = (spreadsheetData: Omit<Spreadsheet, "id" | "lastUpdatedAt">) => {
     const newSpreadsheet: Spreadsheet = {
       ...spreadsheetData,
@@ -31,6 +34,14 @@ export default function Dashboard() {
     };
     
     setSpreadsheets([...spreadsheets, newSpreadsheet]);
+  };
+
+  const handleDeleteSpreadsheet = (id: string) => {
+    setSpreadsheets(spreadsheets.filter((spreadsheet) => spreadsheet.id !== id));
+    toast({
+      title: "Spreadsheet deleted",
+      description: "The spreadsheet has been removed from your dashboard.",
+    });
   };
 
   return (
@@ -49,7 +60,10 @@ export default function Dashboard() {
               </div>
             </div>
             {spreadsheets.length > 0 ? (
-              <SpreadsheetTable spreadsheets={spreadsheets} />
+              <SpreadsheetTable 
+                spreadsheets={spreadsheets} 
+                onDelete={handleDeleteSpreadsheet}
+              />
             ) : (
               <EmptyState />
             )}

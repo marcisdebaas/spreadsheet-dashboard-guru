@@ -9,13 +9,15 @@ import {
 } from "@/components/ui/table";
 import { Spreadsheet } from "@/types";
 import { formatDistanceToNow } from "date-fns";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Trash2 } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface SpreadsheetTableProps {
   spreadsheets: Spreadsheet[];
+  onDelete?: (id: string) => void;
 }
 
-export function SpreadsheetTable({ spreadsheets }: SpreadsheetTableProps) {
+export function SpreadsheetTable({ spreadsheets, onDelete }: SpreadsheetTableProps) {
   return (
     <div className="rounded-lg border shadow-md overflow-hidden bg-white">
       <Table>
@@ -24,6 +26,7 @@ export function SpreadsheetTable({ spreadsheets }: SpreadsheetTableProps) {
             <TableHead className="w-[300px] font-semibold">Spreadsheet URL</TableHead>
             <TableHead className="font-semibold">Client Name</TableHead>
             <TableHead className="text-right font-semibold">Last Updated</TableHead>
+            <TableHead className="w-[80px]"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -46,6 +49,17 @@ export function SpreadsheetTable({ spreadsheets }: SpreadsheetTableProps) {
               <TableCell className="font-medium">{spreadsheet.clientName}</TableCell>
               <TableCell className="text-right text-gray-600">
                 {formatDistanceToNow(spreadsheet.lastUpdatedAt, { addSuffix: true })}
+              </TableCell>
+              <TableCell>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-8 w-8 text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors"
+                  onClick={() => onDelete?.(spreadsheet.id)}
+                  title="Delete spreadsheet"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
               </TableCell>
             </TableRow>
           ))}
