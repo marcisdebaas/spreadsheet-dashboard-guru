@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,7 +47,6 @@ export function SpreadsheetForm({ onAddSpreadsheet }: SpreadsheetFormProps) {
     onAddSpreadsheet({
       url,
       clientName,
-      lastUpdatedBy: "Current User", // In a real app, this would be the current user's name
     });
 
     // Clear the form

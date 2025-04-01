@@ -22,7 +22,6 @@ export function SpreadsheetTable({ spreadsheets }: SpreadsheetTableProps) {
           <TableRow>
             <TableHead className="w-[300px]">Spreadsheet URL</TableHead>
             <TableHead>Client Name</TableHead>
-            <TableHead>Last Updated By</TableHead>
             <TableHead className="text-right">Last Updated</TableHead>
           </TableRow>
         </TableHeader>
@@ -40,7 +39,6 @@ export function SpreadsheetTable({ spreadsheets }: SpreadsheetTableProps) {
                 </a>
               </TableCell>
               <TableCell>{spreadsheet.clientName}</TableCell>
-              <TableCell>{spreadsheet.lastUpdatedBy}</TableCell>
               <TableCell className="text-right">
                 {formatDistanceToNow(spreadsheet.lastUpdatedAt, { addSuffix: true })}
               </TableCell>

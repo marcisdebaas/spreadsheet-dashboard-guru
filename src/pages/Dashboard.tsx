@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Header } from "@/components/Header";
@@ -13,14 +12,12 @@ export default function Dashboard() {
       id: "1",
       url: "https://docs.google.com/spreadsheets/d/1a2b3c4d5e",
       clientName: "Acme Inc.",
-      lastUpdatedBy: "John Doe",
       lastUpdatedAt: new Date(2023, 6, 15),
     },
     {
       id: "2",
       url: "https://docs.google.com/spreadsheets/d/5e4d3c2b1a",
       clientName: "XYZ Corp",
-      lastUpdatedBy: "Jane Smith",
       lastUpdatedAt: new Date(2023, 7, 20),
     },
   ]);
