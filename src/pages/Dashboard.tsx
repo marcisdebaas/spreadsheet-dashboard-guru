@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Header } from "@/components/Header";
@@ -35,13 +36,18 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-      <main className="flex-1 container max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-[300px_1fr] lg:grid-cols-[350px_1fr]">
-          <div className="space-y-6">
+      <main className="flex-1 container max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-[300px_1fr] lg:grid-cols-[350px_1fr]">
+          <div>
             <SpreadsheetForm onAddSpreadsheet={handleAddSpreadsheet} />
           </div>
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold">Your Spreadsheets</h2>
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-gray-800">Your Spreadsheets</h2>
+              <div className="text-sm text-gray-500">
+                {spreadsheets.length} {spreadsheets.length === 1 ? 'spreadsheet' : 'spreadsheets'}
+              </div>
+            </div>
             {spreadsheets.length > 0 ? (
               <SpreadsheetTable spreadsheets={spreadsheets} />
             ) : (
@@ -50,6 +56,9 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
+      <footer className="py-6 bg-white border-t text-center text-sm text-gray-500">
+        Spreadsheet Dashboard &copy; {new Date().getFullYear()}
+      </footer>
     </div>
   );
 }
