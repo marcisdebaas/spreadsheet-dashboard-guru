@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   return (
-    <header className={cn("border-b bg-gradient-to-r from-[#60C082] to-[#4DA36A] shadow-md", className)}>
+    <header className={cn("border-b bg-[#60C082] shadow-md", className)}>
       <div className="container flex h-16 items-center px-4 sm:px-6">
         <div className="flex items-center gap-3">
           <img 
