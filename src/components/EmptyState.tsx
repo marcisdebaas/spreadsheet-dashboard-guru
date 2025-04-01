@@ -3,12 +3,12 @@ import { FileSpreadsheet } from "lucide-react";
 
 export function EmptyState() {
   return (
-    <div className="text-center rounded-lg border border-dashed border-gray-300 p-12">
-      <div className="mx-auto h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
-        <FileSpreadsheet className="h-6 w-6 text-gray-400" />
+    <div className="flex flex-col items-center justify-center p-8 text-center">
+      <div className="rounded-full bg-[#60C082]/20 p-3 mb-4">
+        <FileSpreadsheet className="h-8 w-8 text-[#60C082]" />
       </div>
-      <h3 className="mt-4 text-sm font-medium text-gray-900">No spreadsheets yet</h3>
-      <p className="mt-1 text-sm text-gray-500">
+      <h3 className="text-lg font-medium mb-1">No spreadsheets yet</h3>
+      <p className="text-muted-foreground">
         Add your first spreadsheet using the form above.
       </p>
     </div>
